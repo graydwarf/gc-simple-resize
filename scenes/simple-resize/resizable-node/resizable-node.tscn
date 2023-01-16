@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/simple-resize/resizable-node/resizable-node.gd" type="Script" id=1]
+
+[node name="ResizableNode" type="ColorRect"]
+margin_left = 54.0
+margin_top = 64.0
+margin_right = 182.0
+margin_bottom = 192.0
+rect_min_size = Vector2( 1, 1 )
+mouse_default_cursor_shape = 13
+color = Color( 0.0352941, 0.368627, 1, 0.27451 )
+script = ExtResource( 1 )
+
+[node name="RightGrabHandle" type="ColorRect" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 8, 0 )
+mouse_default_cursor_shape = 10
+color = Color( 0.0666504, 0.655172, 0.8125, 1 )
+
+[node name="LeftGrabHandle" type="ColorRect" parent="."]
+anchor_bottom = 1.0
+rect_min_size = Vector2( 8, 0 )
+mouse_default_cursor_shape = 10
+color = Color( 0.0666504, 0.655172, 0.8125, 1 )
+
+[node name="TopGrabHandle" type="ColorRect" parent="."]
+anchor_right = 1.0
+rect_min_size = Vector2( 8, 8 )
+mouse_default_cursor_shape = 9
+color = Color( 0.0666504, 0.655172, 0.8125, 1 )
+
+[node name="BottomGrabHandle" type="ColorRect" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 8, 8 )
+mouse_default_cursor_shape = 9
+color = Color( 0.0666504, 0.655172, 0.8125, 1 )
+
+[node name="CornerGrabHandle" type="ColorRect" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.0
+margin_top = -1.0
+rect_min_size = Vector2( 12, 12 )
+mouse_default_cursor_shape = 12
+color = Color( 0.695313, 0.244446, 0.667133, 1 )
+
+[connection signal="gui_input" from="." to="." method="_on_ResizableNode_gui_input"]
+[connection signal="gui_input" from="RightGrabHandle" to="." method="_on_RightGrabHandle_gui_input"]
+[connection signal="gui_input" from="LeftGrabHandle" to="." method="_on_LeftGrabHandle_gui_input"]
+[connection signal="gui_input" from="TopGrabHandle" to="." method="_on_TopGrabHandle_gui_input"]
+[connection signal="gui_input" from="BottomGrabHandle" to="." method="_on_BottomGrabHandle_gui_input"]
+[connection signal="gui_input" from="CornerGrabHandle" to="." method="_on_CornerGrabHandle_gui_input"]
